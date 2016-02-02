@@ -53,9 +53,9 @@
                     $line[5] = split("/", $line[5]);
                     $line[5] = $line[5][0]; //." ".substr($line[5][1],0,3);
                     if(!array_key_exists(strtoupper($line[5]),$webserver)) {
-                        $webserver[strtoupper($line[5])] = 1;
+                        $webserver[addslashes(strtoupper($line[5]))] = 1;
                     } else {
-                        $webserver[strtoupper($line[5])]++;
+                        $webserver[addslashes(strtoupper($line[5]))]++;
                     }
                     
                 } else {
