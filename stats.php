@@ -18,7 +18,7 @@
         if(is_file($data.'/'.$name)){
             $file = fopen($data.'/'.$name,'r');
             while(!feof($file)) { 
-                $line = split(",",fgets($file));
+                $line = explode(",",fgets($file));
                 $hash = hash("crc32", $line[0]);
 
                 if(!array_key_exists($hash,$ip)) {
@@ -50,7 +50,7 @@
                         $os[strtoupper($line[3])]++;
                     }
                                         
-                    $line[5] = split("/", $line[5]);
+                    $line[5] = explode("/", $line[5]);
                     $line[5] = $line[5][0]; //." ".substr($line[5][1],0,3);
                     if(!array_key_exists(strtoupper($line[5]),$webserver)) {
                         $webserver[addslashes(strtoupper($line[5]))] = 1;
